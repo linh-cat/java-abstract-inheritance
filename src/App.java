@@ -1,10 +1,16 @@
+import java.util.Scanner;
+
+import model.*;
+import model.Added.*;
+import model.Subtract.*;
+import model.Multibly.*;
+import model.Devide.*;
+import model.Enum.*;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        // Added add1 = new Added();
-        // doCalculation(add1, 100.0d, 50.0d);
-        // Sub sub1 = new Sub();
-        // doCalculation(sub1, 200.0d, 100.0d);
-        performMoreCalculations();
+        // performMoreCalculations();
+        executeInteractively();
 
     }
 
@@ -26,5 +32,42 @@ public class App {
         calculaBase.setRightValue(rightValue);
         calculaBase.calculate();
         System.out.println("Calculation result = " + calculaBase.getResult());
+    }
+
+    static void executeInteractively() {
+        System.out.println("Enter an operation and two numbers:");
+        Scanner scanner = new Scanner(System.in);
+        String userInput = scanner.nextLine();
+        String[] parts = userInput.split(" ");
+        performOperation(parts);
+    }
+
+    private static void performOperation(String[] parts) {
+        MathOperations operations = MathOperations.valueOf(parts[0].toUpperCase());
+        double leftValue = Double.parseDouble(parts[1]);
+        double rightValue = Double.parseDouble(parts[2]);
+        CalculaBase calculation = createCalculation(operations, leftValue, rightValue);
+        calculation.calculate();
+        System.out.println("Operation performed: " + operations);
+        System.out.println(calculation.getResult());
+    }
+
+    private static CalculaBase createCalculation(MathOperations operations, double leftValue, double rightValue) {
+        CalculaBase calculaBase = null;
+        switch (operations) {
+            case ADD:
+                calculaBase = new Added(leftValue, rightValue);
+                break;
+            case SUBTRACT:
+                calculaBase = new Sub(leftValue, rightValue);
+                break;
+            case MULTIBLY:
+                calculaBase = new Mul(leftValue, rightValue);
+                break;
+            case DEVIDE:
+                calculaBase = new Dev(leftValue, rightValue);
+                break;
+        }
+        return calculaBase;
     }
 }

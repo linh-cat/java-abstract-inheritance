@@ -1,3 +1,7 @@
+package model.Subtract;
+
+import model.CalculaBase;
+
 public class Sub extends CalculaBase {
     public Sub() {
     }

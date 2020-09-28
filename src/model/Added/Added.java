@@ -1,3 +1,7 @@
+package model.Added;
+
+import model.CalculaBase;
+
 public class Added extends CalculaBase {
     public Added() {
     }

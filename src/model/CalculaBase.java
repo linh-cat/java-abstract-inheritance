@@ -1,6 +1,5 @@
-/**
- * CalculaBase
- */
+package model;
+
 public abstract class CalculaBase {
 
     private double leftValue;

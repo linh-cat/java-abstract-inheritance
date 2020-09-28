@@ -1,3 +1,7 @@
+package model.Multibly;
+
+import model.CalculaBase;
+
 public class Mul extends CalculaBase {
     public Mul() {
     }
@@ -8,7 +12,7 @@ public class Mul extends CalculaBase {
 
     @Override
     public void calculate() {
-        double value = getLeftValue() - getRightValue();
+        double value = getLeftValue() * getRightValue();
         setResult(value);
 
         // TODO Auto-generated method stub

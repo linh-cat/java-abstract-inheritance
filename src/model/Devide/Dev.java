@@ -1,3 +1,7 @@
+package model.Devide;
+
+import model.CalculaBase;
+
 public class Dev extends CalculaBase {
     public Dev() {
     }
