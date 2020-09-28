@@ -6,4 +6,8 @@ public interface MathProcessing {
     public String getKeyword();
 
     public double doCalculation(double leftValue, double rightValue);
+
+    default String getFormattedOutput() {
+        return null;
+    }
 }

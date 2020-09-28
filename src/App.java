@@ -3,6 +3,7 @@ import java.util.Scanner;
 import model.*;
 import model.Added.*;
 import model.Subtract.*;
+import model.pow.Pow;
 import model.Multibly.*;
 import model.Devide.*;
 import model.DynamicHelper.DynamicHelper;
@@ -38,7 +39,7 @@ public class App {
     }
 
     private static void dynamicInteractivity() {
-        DynamicHelper helper = new DynamicHelper(new MathProcessing[] { new Added() });
+        DynamicHelper helper = new DynamicHelper(new MathProcessing[] { new Added(), new Pow() });
 
         System.out.println("Enter an operation and two numbers:");
         Scanner scanner = new Scanner(System.in);
