@@ -5,12 +5,15 @@ import model.Added.*;
 import model.Subtract.*;
 import model.Multibly.*;
 import model.Devide.*;
+import model.DynamicHelper.DynamicHelper;
 import model.Enum.*;
+import model.Interface.MathProcessing;
 
 public class App {
     public static void main(String[] args) throws Exception {
         // performMoreCalculations();
-        executeInteractively();
+        // executeInteractively();
+        dynamicInteractivity();
 
     }
 
@@ -34,12 +37,23 @@ public class App {
         System.out.println("Calculation result = " + calculaBase.getResult());
     }
 
+    private static void dynamicInteractivity() {
+        DynamicHelper helper = new DynamicHelper(new MathProcessing[] { new Added() });
+
+        System.out.println("Enter an operation and two numbers:");
+        Scanner scanner = new Scanner(System.in);
+        String userInput = scanner.nextLine();
+
+        helper.process(userInput);
+    }
+
     static void executeInteractively() {
         System.out.println("Enter an operation and two numbers:");
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
         String[] parts = userInput.split(" ");
         performOperation(parts);
+
     }
 
     private static void performOperation(String[] parts) {
